@@ -111,6 +111,7 @@ public class Note: NSObject  {
         url = meta.url
         imageUrl = meta.imageUrl
         title = meta.title
+        tags = meta.tags
         preview = meta.preview
         modifiedLocalAt = meta.modificationDate
         creationDate = meta.creationDate
@@ -127,6 +128,7 @@ public class Note: NSObject  {
             url: url,
             imageUrl: imageUrl,
             title: title,
+            tags: tags,
             preview: preview,
             modificationDate: modifiedLocalAt,
             creationDate: creationDate!,
