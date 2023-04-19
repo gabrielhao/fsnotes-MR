@@ -112,6 +112,7 @@ public class Note: NSObject  {
         imageUrl = meta.imageUrl
         title = meta.title
         tags = meta.tags
+        noteDate = meta.noteDate
         preview = meta.preview
         modifiedLocalAt = meta.modificationDate
         creationDate = meta.creationDate
