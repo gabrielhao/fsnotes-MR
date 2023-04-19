@@ -13,6 +13,7 @@ public struct NoteMeta: Codable {
     var imageUrl: [URL]?
     var title: String
     var tags: [String]
+    var noteDate: Date
     var preview: String
     var modificationDate: Date
     var creationDate: Date
