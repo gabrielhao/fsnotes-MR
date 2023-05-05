@@ -27,6 +27,7 @@ public class Note: NSObject  {
 
     public var tags = [String]()
     public var noteDate: Date = Date()
+    
     public var originalExtension: String?
 
     /*
