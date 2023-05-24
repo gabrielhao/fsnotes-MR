@@ -237,20 +237,6 @@ class EditorViewController: UIViewController, UITextViewDelegate, UIDocumentPick
         } else {
             editArea.attributedText = note.content
         }
-        
-        //[todo] experiment code
-        let titleAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.brown]
-        let tagAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.blue]
-        let dateAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.lightGray]
-        let titleString = NSAttributedString(string: "\(note.title)\n", attributes: titleAttributes)
-        let tagString = NSAttributedString(string: "Tag: \(note.tags)\n", attributes: tagAttributes)
-        let dateString = NSAttributedString(string: "Date: \(note.noteDate)\n\n", attributes: dateAttributes)
-
-        let attributedString = NSMutableAttributedString(attributedString: titleString)
-        attributedString.append(tagString)
-        attributedString.append(dateString)
-        attributedString.append(note.content)
-      //  editArea.attributedText = attributedString
 
 
         self.configureToolbar()

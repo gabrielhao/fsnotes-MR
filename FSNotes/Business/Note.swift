@@ -85,12 +85,49 @@ public class Note: NSObject  {
     
     // Make new
     
+//    init(name: String? = nil, project: Project? = nil, type: NoteType? = nil, cont: NoteContainer? = nil) {
+//        let project = project ?? Storage.sharedInstance().getMainProject()
+//        let name = name ?? String()
+//
+//        self.project = project
+//        self.name = name
+//
+//        self.container = cont ?? UserDefaultsManagement.fileContainer
+//        self.type = type ?? UserDefaultsManagement.fileFormat
+//
+//        let ext = container == .none
+//            ? self.type.getExtension(for: container)
+//            : "textbundle"
+//
+//        url = NameHelper.getUniqueFileName(name: name, project: project, ext: ext)
+//
+//        super.init()
+//
+//        self.parseURL()
+//    }
+    
     init(name: String? = nil, project: Project? = nil, type: NoteType? = nil, cont: NoteContainer? = nil) {
         let project = project ?? Storage.sharedInstance().getMainProject()
         let name = name ?? String()
 
         self.project = project
         self.name = name
+        
+        
+        //add default info in note when created
+        self.noteDate = Date()
+        let titleAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.brown]
+        let tagAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.blue]
+        let dateAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.lightGray]
+        let titleString = NSAttributedString(string: "Title: \(self.title)\n", attributes: titleAttributes)
+        let tagString = NSAttributedString(string: "Tag: \(self.tags)\n", attributes: tagAttributes)
+        let dateString = NSAttributedString(string: "Date: \(self.noteDate)\n\n", attributes: dateAttributes)
+
+        let attributedString = NSMutableAttributedString(attributedString: titleString)
+        attributedString.append(tagString)
+        attributedString.append(dateString)
+        self.content = attributedString
+        
         
         self.container = cont ?? UserDefaultsManagement.fileContainer
         self.type = type ?? UserDefaultsManagement.fileFormat
@@ -657,6 +694,8 @@ public class Note: NSObject  {
     }
     
     func getContent() -> NSAttributedString? {
+
+
         guard container != .encryptedTextPack, let url = getContentFileURL() else { return nil }
 
         do {
