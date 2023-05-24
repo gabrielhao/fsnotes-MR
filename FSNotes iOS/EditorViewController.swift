@@ -238,6 +238,7 @@ class EditorViewController: UIViewController, UITextViewDelegate, UIDocumentPick
             editArea.attributedText = note.content
         }
 
+
         self.configureToolbar()
 
         if note.type == .RichText {
