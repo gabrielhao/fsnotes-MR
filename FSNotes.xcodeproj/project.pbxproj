@@ -25,6 +25,14 @@
 		6F13BB7420FEE1E80005E120 /* String+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F13BB4620FEDE330005E120 /* String+Tests.swift */; };
 		6F13BB7620FEE1F20005E120 /* UserDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F13BB4120FEDE330005E120 /* UserDataServiceTests.swift */; };
 		6F13BB7920FEE6070005E120 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76025C2204F2820000B9F59 /* UIFont+.swift */; };
+		7575AD0B2A22AF3700D33BE1 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = 7575AD0A2A22AF3700D33BE1 /* Templates */; };
+		7575AD0C2A22AF3D00D33BE1 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = 7575AD0A2A22AF3700D33BE1 /* Templates */; };
+		7575AD0D2A22AF3D00D33BE1 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = 7575AD0A2A22AF3700D33BE1 /* Templates */; };
+		7575AD0E2A22AF3D00D33BE1 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = 7575AD0A2A22AF3700D33BE1 /* Templates */; };
+		75F7B2152A23EC3500BBFED3 /* Template2.md in Resources */ = {isa = PBXBuildFile; fileRef = 75F7B2142A23EC3500BBFED3 /* Template2.md */; };
+		75F7B2162A23EC3500BBFED3 /* Template2.md in Resources */ = {isa = PBXBuildFile; fileRef = 75F7B2142A23EC3500BBFED3 /* Template2.md */; };
+		75F7B2172A23EC3500BBFED3 /* Template2.md in Resources */ = {isa = PBXBuildFile; fileRef = 75F7B2142A23EC3500BBFED3 /* Template2.md */; };
+		75F7B2182A23EC3500BBFED3 /* Template2.md in Resources */ = {isa = PBXBuildFile; fileRef = 75F7B2142A23EC3500BBFED3 /* Template2.md */; };
 		8E6E3C2D6C9756808F51E2FD /* Pods_FSNotes_iOS_Share_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97BD6F642A10472ACDA6EAC /* Pods_FSNotes_iOS_Share_Extension.framework */; };
 		8F7136EE23490CBF004DFA6E /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7136ED23490CBF004DFA6E /* Markdown.swift */; };
 		8F7136EF23490CBF004DFA6E /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7136ED23490CBF004DFA6E /* Markdown.swift */; };
@@ -1325,6 +1333,9 @@
 		6F13BB4620FEDE330005E120 /* String+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Tests.swift"; sourceTree = "<group>"; };
 		6F13BB5B20FEDE560005E120 /* FSNotesCore_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSNotesCore_iOSTests.swift; sourceTree = "<group>"; };
 		6F13BB5D20FEDE560005E120 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7575AD0A2A22AF3700D33BE1 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
+		757DFFE32A227A4E00FC23C4 /* Template1.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Template1.md; sourceTree = "<group>"; };
+		75F7B2142A23EC3500BBFED3 /* Template2.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Template2.md; sourceTree = "<group>"; };
 		7893B1BA4DAA6D3638FB9BA1 /* Pods-FSNotes (iCloud Documents).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSNotes (iCloud Documents).release.xcconfig"; path = "Target Support Files/Pods-FSNotes (iCloud Documents)/Pods-FSNotes (iCloud Documents).release.xcconfig"; sourceTree = "<group>"; };
 		8F7136ED23490CBF004DFA6E /* Markdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
 		927B0A24F1E4524DB5B63551 /* Pods-FSNotes (Notarized).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSNotes (Notarized).debug.xcconfig"; path = "Target Support Files/Pods-FSNotes (Notarized)/Pods-FSNotes (Notarized).debug.xcconfig"; sourceTree = "<group>"; };
@@ -2043,6 +2054,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		757DFFD82A210DB400FC23C4 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				757DFFE32A227A4E00FC23C4 /* Template1.md */,
+				75F7B2142A23EC3500BBFED3 /* Template2.md */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
 		C5F4774EAA923C4003B182F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2525,6 +2545,8 @@
 		D7D61FCC1F32EEA1004357C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				757DFFD82A210DB400FC23C4 /* Templates */,
+				7575AD0A2A22AF3700D33BE1 /* Templates */,
 				D720240722A9410D000A7691 /* Icons */,
 				D7F2F18521C5032D00E41811 /* Fonts */,
 				D76025B5204F071B000B9F59 /* Toolbar */,
@@ -3094,6 +3116,7 @@
 				D759D2002276D4C300961E90 /* icon.png in Resources */,
 				D7C690C122AAE16200BFBBD1 /* unindent@2x.png in Resources */,
 				D7BAC64F24A360E1008D29AA /* home_white.png in Resources */,
+				75F7B2172A23EC3500BBFED3 /* Template2.md in Resources */,
 				D7C690D622AB033B00BFBBD1 /* tb_link.png in Resources */,
 				D75E33CF22462442006AD1C1 /* AvenirNext-Regular.ttf in Resources */,
 				D75E33D022462442006AD1C1 /* copy.png in Resources */,
@@ -3105,6 +3128,7 @@
 				D75E33DA22462442006AD1C1 /* SourceCodePro-BoldIt.ttf in Resources */,
 				D720241722A9412B000A7691 /* TextBundle.icns in Resources */,
 				D75E33DD22462442006AD1C1 /* AvenirNext-BoldItalic.ttf in Resources */,
+				7575AD0C2A22AF3D00D33BE1 /* Templates in Resources */,
 				D75E33DE22462442006AD1C1 /* SourceCodePro-Regular.ttf in Resources */,
 				D73A996C22FEC788002A7006 /* inbox.png in Resources */,
 				D75E33DF22462442006AD1C1 /* lock-open.png in Resources */,
@@ -3176,6 +3200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7575AD0B2A22AF3700D33BE1 /* Templates in Resources */,
 				D7A549C024DD9BDA00537544 /* settings-icons-font.png in Resources */,
 				D71AA01A2143948A004AFD2A /* archive.png in Resources */,
 				D7F2F1AE21C503F000E41811 /* AvenirNext-Light.ttf in Resources */,
@@ -3188,6 +3213,7 @@
 				D7DF402420A377BE000F8B13 /* repository_white.png in Resources */,
 				D7DF402520A377BE000F8B13 /* tag_white.png in Resources */,
 				D7735B13213D06C500FACB12 /* underline@3x.png in Resources */,
+				75F7B2182A23EC3500BBFED3 /* Template2.md in Resources */,
 				D73CEC882278ECA500D549F7 /* checkbox_white@2x.png in Resources */,
 				D73CEC812278ECA500D549F7 /* checkbox_empty@3x.png in Resources */,
 				D78DC71E247AE47D00C5BB43 /* plus.png in Resources */,
@@ -3352,6 +3378,7 @@
 				D7C690CD22AAE16500BFBBD1 /* unindent@2x.png in Resources */,
 				D7BAC64D24A360E1008D29AA /* home_white.png in Resources */,
 				D7C690D422AB033B00BFBBD1 /* tb_link.png in Resources */,
+				75F7B2152A23EC3500BBFED3 /* Template2.md in Resources */,
 				D7F2F1A921C503F000E41811 /* AvenirNext-Regular.ttf in Resources */,
 				D7038E2020FA957400A54E69 /* copy.png in Resources */,
 				D7258905250A7E6000F1996F /* launch.png in Resources */,
@@ -3363,6 +3390,7 @@
 				D7F2F1B821C503F000E41811 /* AvenirNext-Bold.ttf in Resources */,
 				D7CD5F691F508E74006AA35D /* SourceCodePro-BoldIt.ttf in Resources */,
 				D720241522A9412B000A7691 /* TextBundle.icns in Resources */,
+				7575AD0E2A22AF3D00D33BE1 /* Templates in Resources */,
 				D7F2F1A621C503F000E41811 /* AvenirNext-BoldItalic.ttf in Resources */,
 				D7DD795B1F4E611D00D5724B /* SourceCodePro-Regular.ttf in Resources */,
 				D73A997022FEC78A002A7006 /* inbox.png in Resources */,
@@ -3434,7 +3462,9 @@
 				D7C690D522AB033B00BFBBD1 /* tb_link.png in Resources */,
 				D7C690B222AA4B2900BFBBD1 /* todo@2x.png in Resources */,
 				D7C690AE22AA4B1E00BFBBD1 /* italic.png in Resources */,
+				7575AD0D2A22AF3D00D33BE1 /* Templates in Resources */,
 				D730BD58223AB54F00E69C93 /* new-note.png in Resources */,
+				75F7B2162A23EC3500BBFED3 /* Template2.md in Resources */,
 				D77B9E9C20DE53E1003FAA27 /* archive.png in Resources */,
 				D73A996D22FEC789002A7006 /* inbox_white.png in Resources */,
 				D7C690B322AA4B2900BFBBD1 /* todo@3x.png in Resources */,
