@@ -114,20 +114,8 @@ public class Note: NSObject  {
         self.name = name
         
         
-        //add default info in note when created
-        self.noteDate = Date()
-        let titleAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.brown]
-        let tagAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.blue]
-        let dateAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.lightGray]
-        let titleString = NSAttributedString(string: "Title: \(self.title)\n", attributes: titleAttributes)
-        let tagString = NSAttributedString(string: "Tag: \(self.tags)\n", attributes: tagAttributes)
-        let dateString = NSAttributedString(string: "Date: \(self.noteDate)\n\n", attributes: dateAttributes)
-
-        let attributedString = NSMutableAttributedString(attributedString: titleString)
-        attributedString.append(tagString)
-        attributedString.append(dateString)
-        self.content = attributedString
-        
+        //use template in note when created
+        self.content = Storage.sharedInstance().loadTemplate(named: "Template1.md") ?? NSMutableAttributedString()
         
         self.container = cont ?? UserDefaultsManagement.fileContainer
         self.type = type ?? UserDefaultsManagement.fileFormat

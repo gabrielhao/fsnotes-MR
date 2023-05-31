@@ -132,6 +132,8 @@ class Storage {
         assignArchive()
         assignBookmarks()
 
+        copyTemplates()
+        
         loadCachedProjects()
         checkWelcome()
 
@@ -154,6 +156,68 @@ class Storage {
         }
         return storage
     }
+    
+    //copy templates from bundl to app in order to use it later in app when new note creates
+    private func copyTemplates() {
+        guard let bundleTemplatesURL = Bundle.main.url(forResource: "Templates", withExtension: nil) else {
+            // Unable to locate the Templates folder in the app bundle
+            print("Templates folder not found in the bundle.")
+            return
+        }
+
+        let fileManager = FileManager.default
+        let documentDirectoryURLs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        guard let documentTemplatesURL = documentDirectoryURLs.first?.appendingPathComponent("Templates") else {
+            // Unable to locate the app's Documents/Templates folder
+            print("Unable to access the app's Document/Templates directory.")
+            return
+        }
+
+        do {
+            // Create the Documents/Templates directory if it doesn't exist
+            try fileManager.createDirectory(at: documentTemplatesURL, withIntermediateDirectories: true, attributes: nil)
+
+            // Get the list of files in the bundle's Templates directory
+            let bundleTemplateFiles = try fileManager.contentsOfDirectory(at: bundleTemplatesURL, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+            
+            for templateFileURL in bundleTemplateFiles {
+                let destinationURL = documentTemplatesURL.appendingPathComponent(templateFileURL.lastPathComponent)
+                
+                // Check if the file already exists in the Documents/Templates directory
+                if !fileManager.fileExists(atPath: destinationURL.path) {
+                    // Copy the file from the bundle to the Documents/Templates directory
+                    try fileManager.copyItem(at: templateFileURL, to: destinationURL)
+                    print("Copied file: \(templateFileURL)")
+                }
+            }
+            print("Templates loaded successfully.")
+        } catch {
+            print("Error copying templates: \(error)")
+        }
+    }
+
+    //retrieve template from app
+    func loadTemplate(named fileName: String) -> NSMutableAttributedString? {
+        let fileManager = FileManager.default
+        let documentDirectoryURLs = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        guard let documentTemplatesURL = documentDirectoryURLs.first?.appendingPathComponent("Templates") else {
+            // Unable to locate the app's Documents/Templates folder
+            return nil
+        }
+        
+        let templateFileURL = documentTemplatesURL.appendingPathComponent(fileName)
+        
+        do {
+            let templateContent = try NSMutableAttributedString(url: templateFileURL, options: [.documentType: NSAttributedString.DocumentType.plain], documentAttributes: nil)
+            return templateContent
+        } catch {
+            print("Error loading template: \(error)")
+            return nil
+        }
+    }
+
 
     public func loadCachedProjects() {
         let urls = UserDefaultsManagement.projects
@@ -1260,7 +1324,7 @@ class Storage {
         return destination
     }
 
-    public func initWelcome(storage: URL) {
+    public func  initWelcome(storage: URL) {
         guard UserDefaultsManagement.copyWelcome else { return }
 
         guard let bundlePath = Bundle.main.path(forResource: "Welcome", ofType: ".bundle") else { return }
@@ -1306,8 +1370,11 @@ class Storage {
         guard noteList.isEmpty else { return }
 
         let welcomeFileName = "FSNotes 4.0 for iOS.textbundle"
+        //let welcomeFileName = "FSNotes 5.0 Change Log.textbundle"
+        //let welcomeFileName = "Template1.md"
 
         guard let src = Bundle.main.resourceURL?.appendingPathComponent("Initial/\(welcomeFileName)") else { return }
+        //guard let src = Bundle.main.resourceURL?.appendingPathComponent("Templates/\(welcomeFileName)") else { return }
 
         guard let dst = getDefault()?.url.appendingPathComponent(welcomeFileName) else { return }
 
