@@ -1324,7 +1324,7 @@ class Storage {
         return destination
     }
 
-    public func  initWelcome(storage: URL) {
+    public func initWelcome(storage: URL) {
         guard UserDefaultsManagement.copyWelcome else { return }
 
         guard let bundlePath = Bundle.main.path(forResource: "Welcome", ofType: ".bundle") else { return }
@@ -1370,11 +1370,8 @@ class Storage {
         guard noteList.isEmpty else { return }
 
         let welcomeFileName = "FSNotes 4.0 for iOS.textbundle"
-        //let welcomeFileName = "FSNotes 5.0 Change Log.textbundle"
-        //let welcomeFileName = "Template1.md"
 
         guard let src = Bundle.main.resourceURL?.appendingPathComponent("Initial/\(welcomeFileName)") else { return }
-        //guard let src = Bundle.main.resourceURL?.appendingPathComponent("Templates/\(welcomeFileName)") else { return }
 
         guard let dst = getDefault()?.url.appendingPathComponent(welcomeFileName) else { return }
 
